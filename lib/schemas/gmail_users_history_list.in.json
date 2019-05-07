@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "historyTypes": {
+            "type": "array",
+            "items": {
+                "enum": [
+                    "labelAdded",
+                    "labelRemoved",
+                    "messageAdded",
+                    "messageDeleted"
+                ],
+                "type": "string"
+            }
+        },
+        "labelId": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "default": 100
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "startHistoryId": {
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

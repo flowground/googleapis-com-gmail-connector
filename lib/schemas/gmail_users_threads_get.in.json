@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "type": "string",
+            "enum": [
+                "full",
+                "metadata",
+                "minimal"
+            ],
+            "default": "full"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "metadataHeaders": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

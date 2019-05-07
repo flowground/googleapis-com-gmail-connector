@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Settings for a delegate. Delegates can read, send, and delete messages, as well as view and add contacts, for the delegator's account. See \"Set up mail delegation\" for more information about delegates.",
+            "properties": {
+                "delegateEmail": {
+                    "description": "The email address of the delegate.",
+                    "type": "string"
+                },
+                "verificationStatus": {
+                    "description": "Indicates whether this address has been verified and can act as a delegate for the account. Read-only.",
+                    "enum": [
+                        "accepted",
+                        "expired",
+                        "pending",
+                        "rejected",
+                        "verificationStatusUnspecified"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

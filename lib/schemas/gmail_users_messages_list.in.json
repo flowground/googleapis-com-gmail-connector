@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "includeSpamTrash": {
+            "type": "boolean",
+            "default": false
+        },
+        "labelIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "maxResults": {
+            "type": "integer",
+            "default": 100
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "q": {
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

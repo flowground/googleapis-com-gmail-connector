@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Set up or update a new push notification watch on this user's mailbox.",
+            "properties": {
+                "labelFilterAction": {
+                    "description": "Filtering behavior of labelIds list specified.",
+                    "enum": [
+                        "exclude",
+                        "include"
+                    ],
+                    "type": "string"
+                },
+                "labelIds": {
+                    "description": "List of label_ids to restrict notifications about. By default, if unspecified, all changes are pushed out. If specified then dictates which labels are required for a push notification to be generated.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "topicName": {
+                    "description": "A fully qualified Google Cloud Pub/Sub API topic name to publish the events to. This topic name **must** already exist in Cloud Pub/Sub and you **must** have already granted gmail \"publish\" permission on it. For example, \"projects/my-project-identifier/topics/my-topic-name\" (using the Cloud Pub/Sub \"v1\" topic naming format).\n\nNote that the \"my-project-identifier\" portion must exactly match your Google developer project id (the one executing this watch request).",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

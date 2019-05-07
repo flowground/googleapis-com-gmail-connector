@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "includeSpamTrash": {
+            "type": "boolean",
+            "default": false
+        },
+        "maxResults": {
+            "type": "integer",
+            "default": 100
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "q": {
+            "type": "string"
+        },
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

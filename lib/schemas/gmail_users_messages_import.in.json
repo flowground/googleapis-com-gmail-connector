@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "deleted": {
+            "type": "boolean",
+            "default": false
+        },
+        "internalDateSource": {
+            "type": "string",
+            "enum": [
+                "dateHeader",
+                "receivedTime"
+            ],
+            "default": "dateHeader"
+        },
+        "neverMarkSpam": {
+            "type": "boolean",
+            "default": false
+        },
+        "processForCalendar": {
+            "type": "boolean",
+            "default": false
+        },
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {}
+    }
+}

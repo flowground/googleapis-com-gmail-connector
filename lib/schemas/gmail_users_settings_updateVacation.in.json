@@ -1,0 +1,69 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Vacation auto-reply settings for an account. These settings correspond to the \"Vacation responder\" feature in the web interface.",
+            "properties": {
+                "enableAutoReply": {
+                    "description": "Flag that controls whether Gmail automatically replies to messages.",
+                    "type": "boolean"
+                },
+                "endTime": {
+                    "description": "An optional end time for sending auto-replies (epoch ms). When this is specified, Gmail will automatically reply only to messages that it receives before the end time. If both startTime and endTime are specified, startTime must precede endTime.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "responseBodyHtml": {
+                    "description": "Response body in HTML format. Gmail will sanitize the HTML before storing it.",
+                    "type": "string"
+                },
+                "responseBodyPlainText": {
+                    "description": "Response body in plain text format.",
+                    "type": "string"
+                },
+                "responseSubject": {
+                    "description": "Optional text to prepend to the subject line in vacation responses. In order to enable auto-replies, either the response subject or the response body must be nonempty.",
+                    "type": "string"
+                },
+                "restrictToContacts": {
+                    "description": "Flag that determines whether responses are sent to recipients who are not in the user's list of contacts.",
+                    "type": "boolean"
+                },
+                "restrictToDomain": {
+                    "description": "Flag that determines whether responses are sent to recipients who are outside of the user's domain. This feature is only available for G Suite users.",
+                    "type": "boolean"
+                },
+                "startTime": {
+                    "description": "An optional start time for sending auto-replies (epoch ms). When this is specified, Gmail will automatically reply only to messages that it receives after the start time. If both startTime and endTime are specified, startTime must precede endTime.",
+                    "format": "int64",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

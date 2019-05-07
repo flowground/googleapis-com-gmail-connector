@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Auto-forwarding settings for an account.",
+            "properties": {
+                "disposition": {
+                    "description": "The state that a message should be left in after it has been forwarded.",
+                    "enum": [
+                        "archive",
+                        "dispositionUnspecified",
+                        "leaveInInbox",
+                        "markRead",
+                        "trash"
+                    ],
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "description": "Email address to which all incoming messages are forwarded. This email address must be a verified member of the forwarding addresses.",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Whether all incoming mail is automatically forwarded to another address.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "string",
+            "default": "me"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "POP settings for an account.",
+            "properties": {
+                "accessWindow": {
+                    "description": "The range of messages which are accessible via POP.",
+                    "enum": [
+                        "accessWindowUnspecified",
+                        "allMail",
+                        "disabled",
+                        "fromNowOn"
+                    ],
+                    "type": "string"
+                },
+                "disposition": {
+                    "description": "The action that will be executed on a message after it has been fetched via POP.",
+                    "enum": [
+                        "archive",
+                        "dispositionUnspecified",
+                        "leaveInInbox",
+                        "markRead",
+                        "trash"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

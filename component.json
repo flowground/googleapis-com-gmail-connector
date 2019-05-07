@@ -1,0 +1,1172 @@
+{
+    "title": "Gmail",
+    "description": "Access Gmail mailboxes including sending user email.",
+    "docsUrl": "https://developers.google.com/gmail/api/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/gmail/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/gmail/v1/users",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "gmail_users_drafts_list": {
+            "main": "./lib/actions/gmail_users_drafts_list.js",
+            "title": "Lists the drafts in the user's mailbox.",
+            "description": "Lists the drafts in the user's mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_drafts_create": {
+            "main": "./lib/actions/gmail_users_drafts_create.js",
+            "title": "Creates a new draft with the DRAFT label.",
+            "description": "Creates a new draft with the DRAFT label.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_drafts_send": {
+            "main": "./lib/actions/gmail_users_drafts_send.js",
+            "title": "Sends the specified, existing draft to the recipients in the To, Cc, and Bcc headers.",
+            "description": "Sends the specified, existing draft to the recipients in the To, Cc, and Bcc headers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_drafts_delete": {
+            "main": "./lib/actions/gmail_users_drafts_delete.js",
+            "title": "Immediately and permanently deletes the specified draft. Does not simply trash it.",
+            "description": "Immediately and permanently deletes the specified draft. Does not simply trash it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_drafts_get": {
+            "main": "./lib/actions/gmail_users_drafts_get.js",
+            "title": "Gets the specified draft.",
+            "description": "Gets the specified draft.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_drafts_update": {
+            "main": "./lib/actions/gmail_users_drafts_update.js",
+            "title": "Replaces a draft's content.",
+            "description": "Replaces a draft's content.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_drafts_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_history_list": {
+            "main": "./lib/actions/gmail_users_history_list.js",
+            "title": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).",
+            "description": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_history_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_list": {
+            "main": "./lib/actions/gmail_users_labels_list.js",
+            "title": "Lists all labels in the user's mailbox.",
+            "description": "Lists all labels in the user's mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_create": {
+            "main": "./lib/actions/gmail_users_labels_create.js",
+            "title": "Creates a new label.",
+            "description": "Creates a new label.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_delete": {
+            "main": "./lib/actions/gmail_users_labels_delete.js",
+            "title": "Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to.",
+            "description": "Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_get": {
+            "main": "./lib/actions/gmail_users_labels_get.js",
+            "title": "Gets the specified label.",
+            "description": "Gets the specified label.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_patch": {
+            "main": "./lib/actions/gmail_users_labels_patch.js",
+            "title": "Updates the specified label. This method supports patch semantics.",
+            "description": "Updates the specified label. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_labels_update": {
+            "main": "./lib/actions/gmail_users_labels_update.js",
+            "title": "Updates the specified label.",
+            "description": "Updates the specified label.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_labels_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_list": {
+            "main": "./lib/actions/gmail_users_messages_list.js",
+            "title": "Lists the messages in the user's mailbox.",
+            "description": "Lists the messages in the user's mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_insert": {
+            "main": "./lib/actions/gmail_users_messages_insert.js",
+            "title": "Directly inserts a message into only this user's mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.",
+            "description": "Directly inserts a message into only this user's mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_batchDelete": {
+            "main": "./lib/actions/gmail_users_messages_batchDelete.js",
+            "title": "Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all.",
+            "description": "Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_batchDelete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_batchModify": {
+            "main": "./lib/actions/gmail_users_messages_batchModify.js",
+            "title": "Modifies the labels on the specified messages.",
+            "description": "Modifies the labels on the specified messages.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_batchModify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_import": {
+            "main": "./lib/actions/gmail_users_messages_import.js",
+            "title": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.",
+            "description": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_import.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_send": {
+            "main": "./lib/actions/gmail_users_messages_send.js",
+            "title": "Sends the specified message to the recipients in the To, Cc, and Bcc headers.",
+            "description": "Sends the specified message to the recipients in the To, Cc, and Bcc headers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_delete": {
+            "main": "./lib/actions/gmail_users_messages_delete.js",
+            "title": "Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer messages.trash instead.",
+            "description": "Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer messages.trash instead.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_get": {
+            "main": "./lib/actions/gmail_users_messages_get.js",
+            "title": "Gets the specified message.",
+            "description": "Gets the specified message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_modify": {
+            "main": "./lib/actions/gmail_users_messages_modify.js",
+            "title": "Modifies the labels on the specified message.",
+            "description": "Modifies the labels on the specified message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_modify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_trash": {
+            "main": "./lib/actions/gmail_users_messages_trash.js",
+            "title": "Moves the specified message to the trash.",
+            "description": "Moves the specified message to the trash.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_trash.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_untrash": {
+            "main": "./lib/actions/gmail_users_messages_untrash.js",
+            "title": "Removes the specified message from the trash.",
+            "description": "Removes the specified message from the trash.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_untrash.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_messages_attachments_get": {
+            "main": "./lib/actions/gmail_users_messages_attachments_get.js",
+            "title": "Gets the specified message attachment.",
+            "description": "Gets the specified message attachment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_messages_attachments_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_getProfile": {
+            "main": "./lib/actions/gmail_users_getProfile.js",
+            "title": "Gets the current user's Gmail profile.",
+            "description": "Gets the current user's Gmail profile.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_getProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_getAutoForwarding": {
+            "main": "./lib/actions/gmail_users_settings_getAutoForwarding.js",
+            "title": "Gets the auto-forwarding setting for the specified account.",
+            "description": "Gets the auto-forwarding setting for the specified account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_getAutoForwarding.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_updateAutoForwarding": {
+            "main": "./lib/actions/gmail_users_settings_updateAutoForwarding.js",
+            "title": "Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_updateAutoForwarding.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_delegates_list": {
+            "main": "./lib/actions/gmail_users_settings_delegates_list.js",
+            "title": "Lists the delegates for the specified account.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Lists the delegates for the specified account.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_delegates_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_delegates_create": {
+            "main": "./lib/actions/gmail_users_settings_delegates_create.js",
+            "title": "Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user.\n\nGmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nAlso note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Adds a delegate with its verification status set directly to accepted, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user.\n\nGmail imposes limtations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nAlso note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_delegates_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_delegates_delete": {
+            "main": "./lib/actions/gmail_users_settings_delegates_delete.js",
+            "title": "Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_delegates_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_delegates_get": {
+            "main": "./lib/actions/gmail_users_settings_delegates_get.js",
+            "title": "Gets the specified delegate.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Gets the specified delegate.\n\nNote that a delegate user must be referred to by their primary email address, and not an email alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_delegates_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_filters_list": {
+            "main": "./lib/actions/gmail_users_settings_filters_list.js",
+            "title": "Lists the message filters of a Gmail user.",
+            "description": "Lists the message filters of a Gmail user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_filters_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_filters_create": {
+            "main": "./lib/actions/gmail_users_settings_filters_create.js",
+            "title": "Creates a filter.",
+            "description": "Creates a filter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_filters_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_filters_delete": {
+            "main": "./lib/actions/gmail_users_settings_filters_delete.js",
+            "title": "Deletes a filter.",
+            "description": "Deletes a filter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_filters_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_filters_get": {
+            "main": "./lib/actions/gmail_users_settings_filters_get.js",
+            "title": "Gets a filter.",
+            "description": "Gets a filter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_filters_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_forwardingAddresses_list": {
+            "main": "./lib/actions/gmail_users_settings_forwardingAddresses_list.js",
+            "title": "Lists the forwarding addresses for the specified account.",
+            "description": "Lists the forwarding addresses for the specified account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_forwardingAddresses_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_forwardingAddresses_create": {
+            "main": "./lib/actions/gmail_users_settings_forwardingAddresses_create.js",
+            "title": "Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_forwardingAddresses_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_forwardingAddresses_delete": {
+            "main": "./lib/actions/gmail_users_settings_forwardingAddresses_delete.js",
+            "title": "Deletes the specified forwarding address and revokes any verification that may have been required.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Deletes the specified forwarding address and revokes any verification that may have been required.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_forwardingAddresses_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_forwardingAddresses_get": {
+            "main": "./lib/actions/gmail_users_settings_forwardingAddresses_get.js",
+            "title": "Gets the specified forwarding address.",
+            "description": "Gets the specified forwarding address.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_forwardingAddresses_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_getImap": {
+            "main": "./lib/actions/gmail_users_settings_getImap.js",
+            "title": "Gets IMAP settings.",
+            "description": "Gets IMAP settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_getImap.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_updateImap": {
+            "main": "./lib/actions/gmail_users_settings_updateImap.js",
+            "title": "Updates IMAP settings.",
+            "description": "Updates IMAP settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_updateImap.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_getPop": {
+            "main": "./lib/actions/gmail_users_settings_getPop.js",
+            "title": "Gets POP settings.",
+            "description": "Gets POP settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_getPop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_updatePop": {
+            "main": "./lib/actions/gmail_users_settings_updatePop.js",
+            "title": "Updates POP settings.",
+            "description": "Updates POP settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_updatePop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_list": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_list.js",
+            "title": "Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom \"from\" aliases.",
+            "description": "Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom \"from\" aliases.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_create": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_create.js",
+            "title": "Creates a custom \"from\" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Creates a custom \"from\" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_delete": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_delete.js",
+            "title": "Deletes the specified send-as alias. Revokes any verification that may have been required for using it.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Deletes the specified send-as alias. Revokes any verification that may have been required for using it.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_get": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_get.js",
+            "title": "Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection.",
+            "description": "Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_patch": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_patch.js",
+            "title": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nAddresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This method supports patch semantics.",
+            "description": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nAddresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_update": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_update.js",
+            "title": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nAddresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.",
+            "description": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.\n\nAddresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_smimeInfo_list": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_smimeInfo_list.js",
+            "title": "Lists S/MIME configs for the specified send-as alias.",
+            "description": "Lists S/MIME configs for the specified send-as alias.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_smimeInfo_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_smimeInfo_insert": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_smimeInfo_insert.js",
+            "title": "Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.",
+            "description": "Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_smimeInfo_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_smimeInfo_delete": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_smimeInfo_delete.js",
+            "title": "Deletes the specified S/MIME config for the specified send-as alias.",
+            "description": "Deletes the specified S/MIME config for the specified send-as alias.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_smimeInfo_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_smimeInfo_get": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_smimeInfo_get.js",
+            "title": "Gets the specified S/MIME config for the specified send-as alias.",
+            "description": "Gets the specified S/MIME config for the specified send-as alias.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_smimeInfo_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_smimeInfo_setDefault": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_smimeInfo_setDefault.js",
+            "title": "Sets the default S/MIME config for the specified send-as alias.",
+            "description": "Sets the default S/MIME config for the specified send-as alias.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_smimeInfo_setDefault.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_sendAs_verify": {
+            "main": "./lib/actions/gmail_users_settings_sendAs_verify.js",
+            "title": "Sends a verification email to the specified send-as alias address. The verification status must be pending.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "description": "Sends a verification email to the specified send-as alias address. The verification status must be pending.\n\nThis method is only available to service account clients that have been delegated domain-wide authority.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_sendAs_verify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_getVacation": {
+            "main": "./lib/actions/gmail_users_settings_getVacation.js",
+            "title": "Gets vacation responder settings.",
+            "description": "Gets vacation responder settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_getVacation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_settings_updateVacation": {
+            "main": "./lib/actions/gmail_users_settings_updateVacation.js",
+            "title": "Updates vacation responder settings.",
+            "description": "Updates vacation responder settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_settings_updateVacation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_stop": {
+            "main": "./lib/actions/gmail_users_stop.js",
+            "title": "Stop receiving push notifications for the given user mailbox.",
+            "description": "Stop receiving push notifications for the given user mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_stop.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_list": {
+            "main": "./lib/actions/gmail_users_threads_list.js",
+            "title": "Lists the threads in the user's mailbox.",
+            "description": "Lists the threads in the user's mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_delete": {
+            "main": "./lib/actions/gmail_users_threads_delete.js",
+            "title": "Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer threads.trash instead.",
+            "description": "Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer threads.trash instead.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_get": {
+            "main": "./lib/actions/gmail_users_threads_get.js",
+            "title": "Gets the specified thread.",
+            "description": "Gets the specified thread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_modify": {
+            "main": "./lib/actions/gmail_users_threads_modify.js",
+            "title": "Modifies the labels applied to the thread. This applies to all messages in the thread.",
+            "description": "Modifies the labels applied to the thread. This applies to all messages in the thread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_modify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_trash": {
+            "main": "./lib/actions/gmail_users_threads_trash.js",
+            "title": "Moves the specified thread to the trash.",
+            "description": "Moves the specified thread to the trash.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_trash.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_threads_untrash": {
+            "main": "./lib/actions/gmail_users_threads_untrash.js",
+            "title": "Removes the specified thread from the trash.",
+            "description": "Removes the specified thread from the trash.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_threads_untrash.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gmail_users_watch": {
+            "main": "./lib/actions/gmail_users_watch.js",
+            "title": "Set up or update a push notification watch on the given user mailbox.",
+            "description": "Set up or update a push notification watch on the given user mailbox.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gmail_users_watch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
